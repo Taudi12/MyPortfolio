@@ -1,77 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rethabile Thipa | PR Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/174/174857.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rethabile Thipa | PR Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Global Styles ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #111111;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ===== Animated Bubbles Background ===== */
+    .bubbles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+    }
+
+    .bubbles span {
+      position: absolute;
+      bottom: -120px;
+      width: 40px;
+      height: 40px;
+      background: rgba(10, 102, 194, 0.15);
+      border-radius: 50%;
+      animation: rise 20s infinite ease-in;
+    }
+
+    .bubbles span:nth-child(odd) {
+      width: 25px;
+      height: 25px;
+      animation-duration: 15s;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+      }
+      100% {
+        transform: translateY(-1200px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* ===== Header ===== */
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+      animation: fadeDown 1.2s ease;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      color: #0A66C2;
+      font-weight: 600;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    /* Profile Photo */
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 25px;
+      border: 4px solid #0A66C2;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      animation: fadeUp 1.5s ease;
+    }
+
+    /* Navigation */
+    nav {
+      margin-top: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #0A66C2;
+      margin: 0 15px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #0A66C2;
+      left: 0;
+      bottom: -5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Buttons */
+    .btn-group {
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      margin: 8px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #0A66C2;
+      color: white;
+    }
+
+    .btn-outline {
+      border: 1px solid #0A66C2;
+      color: #0A66C2;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 70px auto;
+      padding: 0 20px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    section h2 {
+      color: #0A66C2;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #e0e0e0;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* Cards */
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      border-left: 4px solid #0A66C2;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Rethabile Thipa</h1>
-        <p>Aspiring Public Relations Specialist</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <!-- Bubbles -->
+  <div class="bubbles">
+    <span style="left:10%"></span>
+    <span style="left:20%"></span>
+    <span style="left:35%"></span>
+    <span style="left:50%"></span>
+    <span style="left:65%"></span>
+    <span style="left:80%"></span>
+    <span style="left:90%"></span>
+  </div>
 
-    <hr>
+  <!-- Header -->
+  <header>
+    <h1>Rethabile Thipa</h1>
+    <p>Aspiring Public Relations Specialist</p>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! I am Rethabile, a passionate Public Relations graduate with experience in stakeholder engagement, communications, and event management. I love crafting meaningful connections and delivering impactful messages that resonate with people and organizations.</p>
-    </section>
+    <!-- Profile Photo -->
+    <!-- Replace profile.jpg with your photo file name -->
+    <img src="profile.jpg" alt="Profile Photo" class="profile-pic">
 
-    <hr>
+    <!-- Buttons -->
+    <div class="btn-group">
+      <a href="cv.pdf" class="btn btn-primary" target="_blank">Download CV</a>
+      <a href="recommendation.pdf" class="btn btn-outline" target="_blank">Letter of Recommendation</a>
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul class="skills-list">
-            <li>Public Relations Management</li>
-            <li>Stakeholder Engagement</li>
-            <li>Event Planning & Coordination</li>
-            <li>Social Media & Content Creation</li>
-            <li>Administration & Communication</li>
-            <li>Sustainability & ESG Awareness</li>
-        </ul>
-    </section>
+    <!-- Navigation -->
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <hr>
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I am a passionate Public Relations graduate dedicated to building meaningful stakeholder relationships, executing impactful campaigns, and driving sustainable communication strategies. My work reflects professionalism, empathy, and strategic thinking.
+      </p>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>UNGCNSA Stakeholder Engagement Internship</h3>
-            <p>Managed communications, organized workshops, and handled stakeholder engagement for a UN Global Compact Network project.</p>
-        </div>
-        <div class="project">
-            <h3>NPO Outreach Event Leadership</h3>
-            <p>Led planning and execution of a community outreach event, including stakeholder communication, logistics, and training sessions for participants.</p>
-        </div>
-    </section>
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card">Public Relations Management</div>
+    <div class="card">Stakeholder Engagement</div>
+    <div class="card">Event Coordination</div>
+    <div class="card">ESG & Sustainability Communication</div>
+    <div class="card">Administration & Office Management</div>
+  </section>
 
-    <hr>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank">linkedin.com/in/yourlinkedin</a></p>
-        <p>Phone: +27 600 000 000</p>
-    </section>
+    <div class="card">
+      <h3>UN Global Compact Network SA Internship</h3>
+      <p>Supported stakeholder engagement, coordinated sustainability workshops, and managed communications.</p>
+    </div>
 
-    <footer>
-        <p>© 2026 Rethabile Thipa | Built with ❤️ and GitHub Pages</p>
-    </footer>
+    <div class="card">
+      <h3>NPO Outreach Leadership Project</h3>
+      <p>Led planning and communications for a community outreach initiative impacting youth development.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: your.email@example.com</p>
+      <p>LinkedIn: linkedin.com/in/yourprofile</p>
+      <p>Phone: +27 XXX XXX XXX</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Rethabile Thipa | PR Portfolio
+  </footer>
 
 </body>
 </html>
