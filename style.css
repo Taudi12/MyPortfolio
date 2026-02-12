@@ -1,0 +1,108 @@
+/* Reset some defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #ffffff; /* White background */
+    color: #111111; /* Almost black text */
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 50px 20px 20px 20px;
+}
+
+header h1 {
+    color: #0A66C2; /* LinkedIn blue */
+    font-size: 2.5rem;
+}
+
+header p {
+    color: #111111;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* Navigation */
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0A66C2;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #084A8C; /* Slightly darker blue on hover */
+}
+
+/* Sections */
+section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+section h2 {
+    color: #0A66C2;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #d3d3d3; /* Light grey divider */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Skills List */
+.skills-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-list li {
+    background-color: #f2f2f2;
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-left: 5px solid #0A66C2;
+}
+
+/* Projects */
+.project {
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-left: 5px solid #0A66C2;
+}
+
+/* Links */
+a {
+    color: #0A66C2;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    color: #555555;
+}
+
+/* Divider */
+hr {
+    border: none;
+    border-top: 1px solid #d3d3d3;
+    margin: 50px 0;
+}
